@@ -23,6 +23,26 @@ const projectSchema = new Schema<TProject>(
       type: String,
       required: [true, "image is required"],
     },
+    githubClientLink: {
+      type: String,
+      required: [true, "githubClientLink is required"],
+    },
+    githubServerLink: {
+      type: String,
+      required: [true, "githubServerLink is required"],
+    },
+    projectChallenges: {
+      type: String,
+      required: [true, "projectChallenges is required"],
+    },
+    improvement: {
+      type: String,
+      required: [true, "improvement is required"],
+    },
+    technologies: {
+      type: [String],
+      required: [true, "technologies is required"],
+    },
     isDeleted: {
       type: Boolean,
       default: false,
