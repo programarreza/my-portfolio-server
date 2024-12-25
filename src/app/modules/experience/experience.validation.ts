@@ -8,4 +8,14 @@ const createExperienceValidationSchema = z.object({
   }),
 });
 
-export { createExperienceValidationSchema };
+const updateExperienceValidationSchema = z.object({
+  body: z.object({
+    date: z.string({ invalid_type_error: "date is required" }).optional(),
+    category: z
+      .string({ invalid_type_error: "category is required" })
+      .optional(),
+    content: z.string({ invalid_type_error: "content is required" }).optional(),
+  }),
+});
+
+export { createExperienceValidationSchema, updateExperienceValidationSchema };

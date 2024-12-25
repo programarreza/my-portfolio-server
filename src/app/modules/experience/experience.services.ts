@@ -23,4 +23,23 @@ const getAllExperienceFromDB = async () => {
   return result;
 };
 
-export { createExperienceIntoDB, getAllExperienceFromDB };
+const updateExperienceIntoDB = async (id: string, payload: Partial<TExperience>) => {
+  const project = await Experience.findById(id);
+  if (!project) {
+    throw new AppError(StatusCodes.NOT_FOUND, "Experiences not found !");
+  }
+
+  // find Experience and update
+  const result = await Experience.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!result) {
+    throw new AppError(StatusCodes.NOT_FOUND, "Failed to update experience ");
+  }
+
+  return result;
+};
+
+export { createExperienceIntoDB, getAllExperienceFromDB , updateExperienceIntoDB};
