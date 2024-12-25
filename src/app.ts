@@ -6,6 +6,7 @@ import authRoutes from "./app/modules/auth/auth.routes";
 import experienceRoutes from "./app/modules/experience/experience.routes";
 import projectRoutes from "./app/modules/project/project.routes";
 import skillRoutes from "./app/modules/skill/skill.routes";
+import blogRoutes from "./app/modules/bolgs/blog.routes";
 
 const app: Application = express();
 
@@ -24,6 +25,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/experiences", experienceRoutes);
 app.use("/api/v1/skills", skillRoutes);
+app.use("/api/v1/blogs", blogRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to portfolio server");
