@@ -13,4 +13,14 @@ const createExperienceIntoDB = async (payload: TExperience) => {
   return result;
 };
 
-export { createExperienceIntoDB };
+const getAllExperienceFromDB = async () => {
+  const result = await Experience.find({ isDeleted: false });
+
+  if (!result) {
+    throw new AppError(StatusCodes.NOT_FOUND, "Experience not found!");
+  }
+
+  return result;
+};
+
+export { createExperienceIntoDB, getAllExperienceFromDB };
