@@ -39,10 +39,12 @@ const projectSchema = new Schema<TProject>(
       type: String,
       required: [true, "improvement is required"],
     },
-    technologies: {
-      type: [String],
-      required: [true, "technologies is required"],
-    },
+    technologies: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Skill",
+      },
+    ],
     isDeleted: {
       type: Boolean,
       default: false,

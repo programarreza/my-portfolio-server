@@ -14,7 +14,7 @@ const createProjectIntoDB = async (payload: TProject) => {
 };
 
 const getAllProjectsFromDB = async () => {
-  const result = await Project.find({ isDeleted: false });
+  const result = await Project.find({ isDeleted: false }).populate("technologies");
 
   if (!result) {
     throw new AppError(statusCode.NOT_FOUND, "Projects not found!");

@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export type TProject = {
   _id: string;
   title: string;
@@ -7,7 +9,7 @@ export type TProject = {
   githubServerLink: string;
   projectChallenges: string;
   improvement: string;
-  technologies: string[];
+  technologies: [Types.ObjectId];
   features: string[];
   image: string;
   isDeleted: boolean;
