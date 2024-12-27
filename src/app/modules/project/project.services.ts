@@ -24,7 +24,7 @@ const getAllProjectsFromDB = async () => {
 };
 
 const getSingleProjectFromDB = async (projectId: string) => {
-  const result = await Project.findById(projectId);
+  const result = await Project.findById(projectId).populate("technologies");;
 
   if (!result) {
     throw new AppError(statusCode.NOT_FOUND, "Projects not found!");
